@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.time.LocalDate;
+import java.io.File;
 
 public class DatabaseManager {
     private static DatabaseManager instance;
@@ -16,7 +17,7 @@ public class DatabaseManager {
 
     private DatabaseManager() {
         // Default to admin database
-        this.dbPath = "db/property_management_admin.db";
+        this.dbPath = getDatabasePath("db/property_management_admin.db");
         initializeDatabase();
     }
 
@@ -27,8 +28,31 @@ public class DatabaseManager {
         return instance;
     }
 
+    private static String getDatabasePath(String relativePath) {
+        try {
+            // Get the directory where the JAR is located
+            String jarPath = DatabaseManager.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
+            File jarFile = new File(jarPath);
+            File jarDir = jarFile.getParentFile();
+            
+            // Create Database folder next to the JAR file
+            File databaseDir = new File(jarDir, "Database");
+            databaseDir.mkdirs(); // Create Database folder if it doesn't exist
+            
+            // Extract just the filename from the relative path (e.g., "db/property_management_admin.db" -> "property_management_admin.db")
+            String fileName = relativePath.substring(relativePath.lastIndexOf("/") + 1);
+            File dbFile = new File(databaseDir, fileName);
+            
+            return dbFile.getAbsolutePath();
+        } catch (Exception e) {
+            // Fallback to current directory
+            return relativePath;
+        }
+    }
+
     public static void createNewDatabase(String dbPath) {
-        try (Connection conn = DriverManager.getConnection("jdbc:sqlite:" + dbPath)) {
+        String resolvedPath = getDatabasePath(dbPath);
+        try (Connection conn = DriverManager.getConnection("jdbc:sqlite:" + resolvedPath)) {
             // Create all tables in the new database
             DatabaseManager tempManager = new DatabaseManager();
             tempManager.connection = conn;

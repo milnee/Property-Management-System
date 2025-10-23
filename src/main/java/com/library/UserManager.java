@@ -8,9 +8,10 @@ import java.sql.Statement;
 import java.security.MessageDigest;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
+import java.io.File;
 
 public class UserManager {
-    private static final String USERS_DB = "db/users.db";
+    private static final String USERS_DB = getDatabasePath("db/users.db");
     private static UserManager instance;
     private Connection connection;
 
@@ -23,6 +24,28 @@ public class UserManager {
             instance = new UserManager();
         }
         return instance;
+    }
+
+    private static String getDatabasePath(String relativePath) {
+        try {
+            // Get the directory where the JAR is located
+            String jarPath = UserManager.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
+            File jarFile = new File(jarPath);
+            File jarDir = jarFile.getParentFile();
+            
+            // Create Database folder next to the JAR file
+            File databaseDir = new File(jarDir, "Database");
+            databaseDir.mkdirs(); // Create Database folder if it doesn't exist
+            
+            // Extract just the filename from the relative path (e.g., "db/users.db" -> "users.db")
+            String fileName = relativePath.substring(relativePath.lastIndexOf("/") + 1);
+            File dbFile = new File(databaseDir, fileName);
+            
+            return dbFile.getAbsolutePath();
+        } catch (Exception e) {
+            // Fallback to current directory
+            return relativePath;
+        }
     }
 
     private void initializeDatabase() {
