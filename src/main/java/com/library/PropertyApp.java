@@ -657,7 +657,7 @@ public class PropertyApp extends Application {
 
         // Logo
         try {
-            ImageView logoView = new ImageView(new Image(new FileInputStream("logo.png")));
+            ImageView logoView = new ImageView(new Image(new FileInputStream("resources/images/logo.png")));
             logoView.setFitHeight(100);
             logoView.setFitWidth(100);
             logoView.setPreserveRatio(true);
@@ -1086,7 +1086,7 @@ public class PropertyApp extends Application {
 
         // Logo
         try {
-            ImageView logoView = new ImageView(new Image(new FileInputStream("logo.png")));
+            ImageView logoView = new ImageView(new Image(new FileInputStream("resources/images/logo.png")));
             logoView.setFitHeight(50);
             logoView.setFitWidth(50);
             logoView.setPreserveRatio(true);

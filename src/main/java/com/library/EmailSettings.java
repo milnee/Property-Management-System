@@ -14,13 +14,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
 public class EmailSettings {
-    private static final String SETTINGS_FILE = "email_settings.properties";
+    private static final String SETTINGS_FILE = "resources/config/email_settings.properties";
     private String email;
+    private String password;
     private String apiKey; // SendGrid API key
 
     public EmailSettings() {
         // Initialize with default settings
-        this.email = "singhmillen2005@gmail.com";
+        this.email = "put your email here";
         this.apiKey = "YOUR_SENDGRID_API_KEY";
         loadSettings();
         

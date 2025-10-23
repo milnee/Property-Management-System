@@ -10,7 +10,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 public class UserManager {
-    private static final String USERS_DB = "users.db";
+    private static final String USERS_DB = "db/users.db";
     private static UserManager instance;
     private Connection connection;
 
@@ -47,12 +47,7 @@ public class UserManager {
 
         try (Statement stmt = connection.createStatement()) {
             stmt.execute(sql);
-            // Add default admin user if not exists
-            String checkAdmin = "SELECT COUNT(*) FROM users WHERE username = 'admin'";
-            ResultSet rs = stmt.executeQuery(checkAdmin);
-            if (rs.next() && rs.getInt(1) == 0) {
-                registerUser("admin", "password", "admin@example.com", "admin");
-            }
+            // No default users - users must register from scratch
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -79,7 +74,7 @@ public class UserManager {
             pstmt.executeUpdate();
             
             // Create user's database
-            DatabaseManager.createNewDatabase(String.format("property_management_%s.db", username));
+            DatabaseManager.createNewDatabase(String.format("db/property_management_%s.db", username));
             return true;
         } catch (Exception e) {
             e.printStackTrace();

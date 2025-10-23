@@ -16,7 +16,7 @@ public class DatabaseManager {
 
     private DatabaseManager() {
         // Default to admin database
-        this.dbPath = "property_management_admin.db";
+        this.dbPath = "db/property_management_admin.db";
         initializeDatabase();
     }
 

@@ -14,7 +14,7 @@ public class User {
         this.password = password;
         this.email = email;
         this.role = role;
-        this.dbPath = String.format("property_management_%s.db", username);
+        this.dbPath = String.format("db/property_management_%s.db", username);
     }
 
     // Getters and setters
@@ -24,7 +24,7 @@ public class User {
     public String getUsername() { return username; }
     public void setUsername(String username) { 
         this.username = username;
-        this.dbPath = String.format("property_management_%s.db", username);
+        this.dbPath = String.format("db/property_management_%s.db", username);
     }
 
     public String getPassword() { return password; }
