@@ -30,6 +30,7 @@ While the project was developed using **AI-assisted coding** (for structure, boi
 - **Report Generation** – Export data as PDF or Excel reports  
 - **User Management** – Multi-user access with role-based permissions  
 - **Built-in Database** – Uses local **SQLite** for storage; **no external setup required**  
+- **Runnable JAR Output** – Easily generate a `.jar` file that can be distributed to end-users  
 
 ---
 
