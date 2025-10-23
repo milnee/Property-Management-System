@@ -1,131 +1,53 @@
-# Property Management System
+# 🏠 Property Management System
 
-A comprehensive JavaFX-based property management system for managing properties, tenants, rent payments, and maintenance requests.
+A comprehensive **JavaFX-based Property Management System**, created with the assistance of **AI tools** to demonstrate full-stack application design and development.  
 
-## Features
+This project is designed for **property owners and managers** who need an easy way to manage their properties, tenants, rent payments, maintenance requests, and communication — all in one place.
 
-- **Property Management**: Add, edit, and manage property details
-- **Tenant Management**: Track tenant information and lease details
-- **Rent Payment Tracking**: Monitor rent payments and generate reports
-- **Maintenance Requests**: Handle and track maintenance requests
-- **Email Notifications**: Send automated emails to tenants and property managers
-- **Report Generation**: Generate PDF and Excel reports
-- **User Management**: Multi-user system with role-based access
-- **Database Management**: SQLite database for data persistence
+---
 
-## Project Structure
+## ⚙️ Overview
 
-```sss
+This system allows users to:
+- Manage multiple properties  
+- Track tenants and lease details  
+- Monitor rent payments and expenses  
+- Handle maintenance requests efficiently  
+- Send automated email notifications  
+- Generate financial and operational reports  
+
+While the project was developed using **AI-assisted coding** (for structure, boilerplate code, and UI design), it demonstrates how AI can be integrated into the **software development workflow** to accelerate prototyping and learning.
+
+---
+
+## 🧠 Features
+
+- **Property Management** – Add, edit, and track property details  
+- **Tenant Management** – Maintain tenant information and lease periods  
+- **Rent Payment Tracking** – Log payments and generate rent reports  
+- **Maintenance Requests** – Submit and track maintenance issues  
+- **Email Notifications** – Automatically send updates and reminders  
+- **Report Generation** – Export data as PDF or Excel reports  
+- **User Management** – Multi-user access with role-based permissions  
+- **Built-in Database** – Uses local **SQLite** for storage; **no external setup required**  
+
+---
+
+## 🗂️ Project Structure
+
+```text
 Property-Management-System/
-├── db/                          # Database files
+├── db/                          # Embedded SQLite database files
 │   ├── property_management_admin.db
 │   ├── users.db
-│   └── other database files...
-├── resources/                   # Application resources
-│   ├── images/                 # Images and logos
-│   │   └── logo.png
-│   └── config/                 # Configuration files
-│       └── email_settings.properties
-├── src/main/java/com/library/  # Source code
-├── scripts/                    # Run scripts
-│   ├── run.sh                 # macOS/Linux run script
-│   └── run.bat                # Windows run script
-├── docs/                       # Documentation
-├── target/                     # Maven build output
-└── pom.xml                     # Maven configuration
-```
-
-## Requirements
-
-- Java 17 or later
-- Maven 3.6 or later
-- JavaFX 21.0.1
-
-## Installation
-
-1. Clone or download the project
-2. Ensure Java 17+ and Maven are installed
-3. Navigate to the project directory
-
-## Running the Application
-
-### macOS/Linux:
-```bash
-cd scripts
-./run.sh
-```
-
-### Windows:
-```cmd
-cd scripts
-run.bat
-```
-
-### Alternative (Maven):
-```bash
-mvn clean compile javafx:run
-```
-
-## Configuration
-
-### Email Settings
-Configure email settings in `resources/config/email_settings.properties`:
-- Set up Gmail SMTP settings
-- Configure SendGrid API key for email notifications
-
-### Database
-- Default admin database: `db/property_management_admin.db`
-- User databases: `db/property_management_[username].db`
-- Users database: `db/users.db`
-
-## Features Overview
-
-### Dashboard
-- Property overview
-- Recent activities
-- Quick statistics
-
-### Property Management
-- Add/edit properties
-- Property details and photos
-- Property status tracking
-
-### Tenant Management
-- Tenant information
-- Lease management
-- Contact details
-
-### Financial Management
-- Rent payment tracking
-- Expense management
-- Financial reports
-
-### Maintenance
-- Request tracking
-- Priority management
-- Status updates
-
-## Development
-
-### Building
-```bash
-mvn clean compile
-```
-
-### Running Tests
-```bash
-mvn test
-```
-
-### Creating JAR
-```bash
-mvn clean package
-```
-
-## License
-
-This project is for educational and personal use.
-
-## Support
-
-For issues or questions, please check the documentation or contact the development team.
+│   └── ...
+├── resources/                   # Images, configuration, and assets
+│   ├── images/
+│   └── config/email_settings.properties
+├── src/main/java/com/library/    # Main source code
+├── scripts/                      # Run scripts for both OS types
+│   ├── run.sh                   # For macOS/Linux
+│   └── run.bat                  # For Windows
+├── docs/                         # Documentation
+├── target/                       # Maven build output
+└── pom.xml                       # Maven configuration
