@@ -23,13 +23,13 @@ While the project was developed using **AI-assisted coding** (for structure, boi
 ## 🧠 Features
 
 - **Property Management** – Add, edit, and track property details  
-- **Tenant Management** – Maintain tenant info and lease periods  
+- **Tenant Management** – Maintain tenant information and lease periods  
 - **Rent Payment Tracking** – Log payments and generate rent reports  
 - **Maintenance Requests** – Submit and track maintenance issues  
 - **Email Notifications** – Automatically send updates and reminders  
 - **Report Generation** – Export data as PDF or Excel reports  
 - **User Management** – Multi-user access with role-based permissions  
-- **Database Integration** – Uses SQLite for data storage  
+- **Built-in Database** – Uses local **SQLite** for storage; **no external setup required**  
 
 ---
 
@@ -37,17 +37,17 @@ While the project was developed using **AI-assisted coding** (for structure, boi
 
 ```text
 Property-Management-System/
-├── db/                          # Database files
+├── db/                          # Embedded SQLite database files
 │   ├── property_management_admin.db
 │   ├── users.db
 │   └── ...
-├── resources/                   # Images, config, and other assets
+├── resources/                   # Images, configuration, and assets
 │   ├── images/
 │   └── config/email_settings.properties
 ├── src/main/java/com/library/    # Main source code
-├── scripts/                      # Run scripts
-│   ├── run.sh
-│   └── run.bat
+├── scripts/                      # Run scripts for both OS types
+│   ├── run.sh                   # For macOS/Linux
+│   └── run.bat                  # For Windows
 ├── docs/                         # Documentation
-├── target/                       # Build output
+├── target/                       # Maven build output
 └── pom.xml                       # Maven configuration
